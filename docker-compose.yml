@@ -1,0 +1,8 @@
+version: '2'
+services:
+  wordpress:
+    image: 780002858061.dkr.ecr.ap-southeast-1.amazonaws.com/erlang-test-image:latest
+    cpu_shares: 100
+    mem_limit: 524288000
+    ports:
+      - "0:8080"
