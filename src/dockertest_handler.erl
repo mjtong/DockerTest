@@ -24,7 +24,7 @@ content_types_accepted(Req, State) ->
 
 from_json(Req, State) ->
   Body = jsx:encode(#{
-    ok        => <<"true">>
+    ok        => <<"v20171010-02">>
   }),
   {ok, CReply} = cowboy_req:reply(200, [], Body, Req),
   {halt, CReply, State}.
