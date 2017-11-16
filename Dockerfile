@@ -10,7 +10,8 @@ FROM 780002858061.dkr.ecr.ap-southeast-1.amazonaws.com/base-image:erlang-18.3
 #RUN cat /root/.ssh/known_hosts
 COPY / /usr/src/app/
 RUN . /root/erlang-18.3/activate && cd /usr/src/app && ./rebar3 as prod release -n dockertest
+CMD . /root/erlang-18.3/activate && /usr/src/app/prod/rel/dockertest/bin/dockertest foreground
 
-FROM 780002858061.dkr.ecr.ap-southeast-1.amazonaws.com/base-image:erlang-18.3
-COPY --from=0 /usr/src/app/_build /usr/src/test/
-CMD  . /root/erlang-18.3/activate && /usr/src/test/prod/rel/dockertest/bin/dockertest foreground
+#FROM 780002858061.dkr.ecr.ap-southeast-1.amazonaws.com/base-image:erlang-18.3
+#COPY --from=0 /usr/src/app/_build /usr/src/test/
+#CMD  . /root/erlang-18.3/activate && /usr/src/test/prod/rel/dockertest/bin/dockertest foreground
